@@ -2,9 +2,21 @@
 module.exports = {
   content: ["./public/**/*.{html,js}"],
   presets: [],
-  darkMode: "media", // or 'class'
+  darkMode: "class", // or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        nunit: ["Nunito+Sans"],
+      },
+      colors: {
+        dme: "hsl(209, 23%, 22%)",
+        dmb: "hsl(207, 26%, 17%)",
+        lmt: "hsl(200, 15%, 8%)",
+        lmi: "hsl(0, 0%, 52%)",
+        lmb: "hsl(0, 0%, 98%)",
+        dmtlme: "hsl(0, 0%, 100%)",
+      },
+    },
     accentColor: ({ theme }) => ({
       ...theme("colors"),
       auto: "auto",

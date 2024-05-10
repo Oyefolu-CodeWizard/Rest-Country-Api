@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wdth,wght,YTLC@6..12,75,200..1000,440&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.display-none {
+  @apply hidden;
+}
