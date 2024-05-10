@@ -2,6 +2,8 @@
 
 Welcome to the Country API project with Tailwind! This project aims to provide a comprehensive API for accessing information about countries around the world via a RESTful API.
 
+# Frontend Mentor - REST Countries API with color theme switcher
+
 ## Features:
 
 - **Basic Information:** Get essential details about a country, including its name, capital, population, and more.

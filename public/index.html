@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REST COUNTRY API</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body class="w-full flex font-nunit bg-lmb dark:bg-dmb">
+    <!-- Container-------------------------------------------------------------------- -->
+    <main class="w-full">
+      <!-- Navigation Bar------------------------------------------------------------- -->
+      <nav
+        class="w-full flex justify-between shadow-md pl-20 pr-20 pt-6 pb-6 bg-dmtlme dark:bg-dme"
+      >
+        <h1 class="font-nunit font-bold text-2xl text-lmt dark:text-dmtlme">
+          Where in the world?
+        </h1>
+        <div class="theme flex justify-between gap-2 cursor-pointer">
+          <!-- Sun--------------------------------------------------------------- -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="sun w-6 h-6 text-lmt dark:text-dmtlme"
+          >
+            <path
+              d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z"
+            />
+          </svg>
+
+          <!-- Moon-------------------------------------------------- -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="moon w-6 h-6 text-lmt dark:text-dmtlme display-none"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.455 2.004a.75.75 0 0 1 .26.77 7 7 0 0 0 9.958 7.967.75.75 0 0 1 1.067.853A8.5 8.5 0 1 1 6.647 1.921a.75.75 0 0 1 .808.083Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <span
+            class="light text-lmt text-md dark:text-dmtlme font-nunit font-normal"
+            >Light Mode</span
+          >
+        </div>
+      </nav>
+
+      <!-- Search & Filter Params-------------------------------------------------------------- -->
+      <div class="flex justify-center relative top-10">
+        <form class="w-[90%] flex justify-between">
+          <!-- Search Input-------------------------------------------------------------------- -->
+          <div
+            class="w-[35%] flex justify-between bg-dmtlme dark:bg-dme shadow-md h-11 pl-5 gap-4 rounded-md"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-5 h-5 text-lmi mt-2.5 font-bold"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <input
+              type="text"
+              class="w-full font-nunit border-0 outline-none caret-lmi text-lmi bg-dmtlme dark:bg-dme"
+              name="country"
+              id="country-name"
+              placeholder="Search for a country..."
+            />
+          </div>
+
+          <!-- Filter by region----------------------------------------------------------------- -->
+          <div class="w-40 bg-dmtlme dark:bg-dme rounded-sm shadow-sm">
+            <select
+              class="text-base font-nunit border-none outline-none h-11 pl-3 rounded-sm text-lmi bg-dmtlme dark:bg-dme"
+              id="region-select"
+            >
+              <option value="none" selected disabled hidden>
+                Filter by Regoin
+              </option>
+              <option value="all">All</option>
+              <option value="africa">Africa</option>
+              <option value="america">America</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="oceania">Oceania</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <!-- Countries Data Loaded------------------------------------------------------------------- -->
+      <div class="flex justify-center h-full relative top-20">
+        <div
+          class="w-[90%] grid grid-cols-4 col-span-4 gap-y-1 gap-x-16 relative top-10"
+        >
+          <!-- Each country card--------------------------------------------------------------- -->
+          <!-- <article class="w-64 h-[350px] bg-dmtlme dark:bg-dme shadow-md rounded-lg">
+            <img src="" alt="" class="w-64 h-40 object-cover bg-dmtlme dark:bg-dme rounded-tl-lg rounded-tr-lg">
+            <div class="pl-6 pt-10 pb-2">
+              <h3 class="mb-3 font-bold text-lmt dark:text-dmtlme">COUNTRY</h3>
+              <h4 class="mb-1 text-lmt font-semibold text-sm dark:text-dmtlme">Population: <span class="mr-8 font-normal">10,000,000</span</h4>
+              <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Region: <span class="mr-8 font-normal">Europe</span></p>
+              <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Capital: <span class="mr-8 font-normal">Berlin</span></p>
+            </div>
+          </article> -->
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
