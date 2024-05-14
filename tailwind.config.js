@@ -16,6 +16,9 @@ module.exports = {
         lmb: "hsl(0, 0%, 98%)",
         dmtlme: "hsl(0, 0%, 100%)",
       },
+      width: {
+        128: "32rem",
+      },
     },
     accentColor: ({ theme }) => ({
       ...theme("colors"),
