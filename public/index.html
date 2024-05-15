@@ -58,7 +58,7 @@
       </nav>
 
       <!-- Search & Filter Params-------------------------------------------------------------- -->
-      <div class="flex justify-center relative top-10">
+      <div class="search-filter flex justify-center relative top-10">
         <form class="w-[90%] flex justify-between">
           <!-- Search Input-------------------------------------------------------------------- -->
           <div
@@ -93,7 +93,7 @@
               id="region-select"
             >
               <option value="none" selected disabled hidden>
-                Filter by Regoin
+                Filter by Region
               </option>
               <option value="all">All</option>
               <option value="africa">Africa</option>
@@ -107,7 +107,7 @@
       </div>
 
       <!-- Countries Data Loaded------------------------------------------------------------------- -->
-      <div class="flex justify-center h-full relative top-20">
+      <div class="country-container flex justify-center h-full relative top-20">
         <div
           class="card-container w-[90%] grid grid-cols-4 col-span-4 gap-y-16 gap-x-16 relative top-10"
         >
@@ -122,6 +122,59 @@
             </div>
           </article> -->
         </div>
+      </div>
+
+      <!-- Countries Details Container--------------------------------------------------------------- -->
+      <div class="details-container flex justify-center h-full relative top-10">
+        <!-- Details Elements--------------------------------------------------------------- -->
+        <!-- <div class="w-[90%] relative">
+          <button
+            class="back flex justify-start rounded-md !p-10 bg-dmtlme dark:bg-dme dark:text-dmtlme shadow-md gap-2 font-nunit font-semibold"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-5 h-5 mt-1 dark:text-dmtlme"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            Back
+          </button>
+
+          <div class="w-full flex justify-between relative top-20">
+            <img src="" alt="" class="!w-[32rem] h-[350px] object-cover bg-dmtlme dark:bg-dme">
+            <div class="pl-6 pt-10 pb-2">
+              <div class="">
+                <h3 class="font-bold text-2xl text-lmt dark:text-dmtlme">Belgium</h3>
+
+                <div class="flex gap-x-16 relative top-10">
+                    <article class="">
+                        <h4 class="mb-1 text-lmt font-semibold text-sm dark:text-dmtlme">Native Name: <span class="mr-8 font-normal">Belgie</span</h4>
+                        <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Population: <span class="mr-8 font-normal">10,000,000</span></p>
+                        <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Region: <span class="mr-8 font-normal">Europe</span></p>
+                        <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Sub Region: <span class="mr-8 font-normal">Western Europe</span></p>
+                        <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Capital: <span class="mr-8 font-normal">Brussels</span></p>
+                    </article>
+
+                    <article class="">
+                        <h4 class="mb-1 text-lmt font-semibold text-sm dark:text-dmtlme">Top Level Domain: <span class="mr-8 font-normal">.be</span</h4>
+                        <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Currencies: <span class="mr-8 font-normal">Euro</span></p>
+                        <p class="mt-1 text-lmt font-semibold dark:text-dmtlme">Languages: <span class="mr-8 font-normal">Dutch, French, German</span></p>
+                    </article>
+                </div>
+
+                <p class="relative top-20 text-lmt font-semibold text-sm dark:text-dmtlme">Border Countries: <button class="mr-8 font-normal border-1 border-lmi">Dutch</button></p>
+              </div>
+              
+            </div>
+          </div>
+        </div> -->
       </div>
     </main>
   </body>
