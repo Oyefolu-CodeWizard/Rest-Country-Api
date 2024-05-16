@@ -9,5 +9,5 @@
 }
 
 .card {
-  @apply w-64 h-[350px] bg-dmtlme  hover:scale-120 transtion ease-out duration-500 dark:bg-dme shadow-md rounded-lg;
+  @apply w-64 h-[350px] bg-dmtlme  hover:scale-120 transtion ease-out duration-500 cursor-pointer dark:bg-dme shadow-md rounded-lg;
 }
