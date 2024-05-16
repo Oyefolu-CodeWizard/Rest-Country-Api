@@ -64,7 +64,7 @@ theme.addEventListener("click", function () {
 // themeCheck();
 
 //////////////////////////////////////////////////////////////////////////////
-// Fetch Api request
+// Render all country to the DOM
 const renderCountry = function (country) {
   const html = `
   <article class="card">
@@ -91,6 +91,7 @@ const renderCountry = function (country) {
   cardContainer.insertAdjacentHTML("beforeend", html);
 };
 
+// Get country native names by destructuring
 const getNativeName = function (nativeName) {
   const [, , nat] = Object.entries(nativeName);
   const natOb = Object.entries(nat[1]);
@@ -99,6 +100,7 @@ const getNativeName = function (nativeName) {
   return nld;
 };
 
+// Get country currencies by destructuring
 const getCurrency = function (currency) {
   const [name] = Object.values(currency);
   const cur = Object.values(name);
@@ -106,23 +108,25 @@ const getCurrency = function (currency) {
   return joinCur;
 };
 
-const getLanguages = function (currency) {
-  const name = Object.values(currency);
+// Get country languages by destructuring
+const getLanguages = function (language) {
+  const name = Object.values(language);
   const joinName = name.join(", ");
   return joinName;
 };
 
-const getBorders = function (currency) {
-  const border = currency
+// Get country borders and mapping it out
+const getBorders = function (border) {
+  const borders = border
     .map(
       (bor) =>
-        `<button class="shadow-md bg-dmtlme dark:bg-dme dark:text-dmtlme border-1 border-lmt rounded-sm p-10">${bor}</button>`
+        `<button class="shadow-md bg-dmtlme dark:bg-dme dark:text-dmtlme border-1 border-lmi font-nunit font-normal rounded-sm p-10">${bor}</button>`
     )
     .join(" ");
-  console.log(border);
-  return border;
+  return borders;
 };
 
+// Render Country Details to the DOM
 const renderDetails = function (detailsData) {
   const html = `
   <div class="w-[90%] relative">
@@ -191,9 +195,9 @@ const renderDetails = function (detailsData) {
             </article>
         </div>
 
-        <p class="relative top-20 text-lmt font-semibold text-sm dark:text-dmtlme">Border Countries: <button class="mr-8 font-normal font-nunit border-1 border-lmi">${
+        <p class="relative top-20 text-lmt font-semibold text-sm dark:text-dmtlme">Border Countries: <span class="mr-8">${
           detailsData.borders ? getBorders(detailsData.borders) : "None"
-        }</button></p>
+        }</span></p>
       </div>
       
     </div>
@@ -203,6 +207,7 @@ const renderDetails = function (detailsData) {
   detailsContainer.insertAdjacentHTML("beforeend", html);
 };
 
+// Throwing error function for all promises
 const throwError = function (res) {
   if (!res.ok)
     throw new Error(`Couldn't get countries.
@@ -214,6 +219,7 @@ const throwError = function (res) {
       `);
 };
 
+// Get all countries func and mapping it to the DOM with it's data
 const getAllCountries = async function () {
   try {
     const res = await fetch(url);
@@ -228,21 +234,25 @@ const getAllCountries = async function () {
   }
 };
 
+// clear countries innerHTML before rendering them
 function clearCountries() {
   cardContainer.innerHTML = "";
 }
+
+// Clear details and show country container and search filter
 function clearDetails() {
-  // Clear details and show country container and search filter
   detailsContainer.classList.add("display-none");
   countryContainer.classList.remove("display-none");
   searchFilter.classList.remove("display-none");
 }
 
+// Remove display-none css property if there's any before rendering country details
 function setDetails() {
   detailsContainer.classList.remove("display-none");
   detailsContainer.innerHTML = "";
 }
 
+// Filter country by search
 const getSearchCountry = async function () {
   try {
     const res = await fetch(url);
@@ -276,6 +286,7 @@ const getSearchCountry = async function () {
   }
 };
 
+// Filter country by region
 const filterByRegion = async function (e) {
   try {
     const filterValue = e.target.value;
@@ -301,7 +312,7 @@ const filterByRegion = async function (e) {
   }
 };
 
-// Details Section
+// Display country detials for each country card clicked
 cardContainer.addEventListener("click", function (e) {
   const card = e.target.closest(".card");
 
@@ -310,7 +321,6 @@ cardContainer.addEventListener("click", function (e) {
 
     if (countryNameElems) {
       const countryName = countryNameElems.textContent;
-      console.log(countryName);
 
       const fetchDetails = async function () {
         try {
@@ -321,7 +331,6 @@ cardContainer.addEventListener("click", function (e) {
           throwError(res);
 
           const [data] = await res.json();
-          console.log(data);
 
           // Clear all countries container before rendering details
           countryContainer.classList.add("display-none");
@@ -341,7 +350,7 @@ cardContainer.addEventListener("click", function (e) {
             getAllCountries();
           }
         } catch (error) {
-          console.log(error);
+          alert(error);
         }
       };
       fetchDetails();
